@@ -1,0 +1,11 @@
+Model Information:
+* title:	Avatar.glb
+* source:	https://sketchfab.com/3d-models/avatarglb-e78d21c8c6c64955ad7eba40e815f1ed
+* author:	laibae.awan (https://sketchfab.com/laibae.awan)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Avatar.glb" (https://sketchfab.com/3d-models/avatarglb-e78d21c8c6c64955ad7eba40e815f1ed) by laibae.awan (https://sketchfab.com/laibae.awan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

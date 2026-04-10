@@ -1,0 +1,11 @@
+Model Information:
+* title:	Twitch Logo
+* source:	https://sketchfab.com/3d-models/twitch-logo-e9d2e09d5af7468ba70ab7d978af5671
+* author:	EpicElric (https://sketchfab.com/epicelric)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Twitch Logo" (https://sketchfab.com/3d-models/twitch-logo-e9d2e09d5af7468ba70ab7d978af5671) by EpicElric (https://sketchfab.com/epicelric) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)

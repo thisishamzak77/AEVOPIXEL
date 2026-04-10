@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aevo-green: #00ff6a;
+  --color-aevo-dark: #0a0a0a;
+  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Base concrete texture simulation via noise (now with fixed attachment for scroll) */
+.concrete-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Neon Glow utilities */
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 106, 0.7), 0 0 20px rgba(0, 255, 106, 0.5);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 106, 0.2);
+}
+
+.box-glow-green-strong {
+  box-shadow: 0 0 25px rgba(0, 255, 106, 0.4);
+}
+
+.glass-morphism {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 106, 0.1);
+}
+
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@layer utilities {
+  .text-stroke-green {
+    -webkit-text-stroke: 1px rgba(0, 255, 106, 0.3);
+  }
+}
