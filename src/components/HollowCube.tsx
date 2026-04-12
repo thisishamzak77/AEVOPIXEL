@@ -8,6 +8,13 @@ import { useAppContext } from "./AppContext";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
 
+// Preload models for faster initialization (< 1s)
+useGLTF.preload("/models/artwork/artwork.glb");
+useGLTF.preload("/models/webdev/webdev.glb");
+useGLTF.preload("/models/twitch_logo/scene.gltf");
+useGLTF.preload("/models/ebook/scene.gltf");
+useGLTF.preload("/models/avatar.glb/scene.gltf");
+
 const CUBE_SIZE = 10;
 const HALF = CUBE_SIZE / 2;
 
@@ -58,7 +65,7 @@ function HollowEdges() {
   )
 }
 
-function FaceWrapper({ position, rotation, serviceId, title, children }: any) {
+function FaceWrapper({ position, rotation, serviceId, title, subtitle, children }: any) {
   const { hoverNode, setHoverNode, activeFace } = useAppContext();
   const router = useRouter();
   const isHovered = hoverNode === serviceId;
@@ -128,6 +135,20 @@ function FaceWrapper({ position, rotation, serviceId, title, children }: any) {
             letterSpacing={0.15}
         >
             {title}
+        </Text>
+
+        {/* Subtitle Description */}
+        <Text 
+            position={[0, -4.2, 0]} 
+            fontSize={0.18} 
+            maxWidth={5}
+            textAlign="center"
+            color={isActive ? "#ffffff" : (isHovered ? "#888888" : "#333333")} 
+            anchorX="center" 
+            anchorY="middle"
+            letterSpacing={0.05}
+        >
+            {subtitle}
         </Text>
       </group>
     </group>
@@ -239,37 +260,70 @@ export default function HollowCube() {
   const outerGroup = useRef<THREE.Group>(null!);
 
   useFrame((state, delta) => {
-    if (outerGroup.current) {
-        outerGroup.current.rotation.y += delta * 0.05;
-        outerGroup.current.rotation.x += delta * 0.02;
-    }
+    // Rotation removed to prevent conflict with user movement controls
   });
 
   return (
     <group ref={outerGroup}>
       <HollowEdges />
       
-      <FaceWrapper serviceId="3d_design" title="ARTWORK" position={[0, 0, HALF]} rotation={[0, 0, 0]}>
+      <FaceWrapper 
+        serviceId="3d_design" 
+        title="Artwork:" 
+        subtitle="Visual Identity Assets · Character Design · Digital Art Assets"
+        position={[0, 0, HALF]} 
+        rotation={[0, 0, 0]}
+      >
          <ArtworkGeometry />
       </FaceWrapper>
       
-      <FaceWrapper serviceId="web_dev" title="WEB & APP DEVELOPMENT" position={[HALF, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+      <FaceWrapper 
+        serviceId="web_dev" 
+        title="Web & App devlopment:" 
+        subtitle="Interactive Architectures · AI-Integrable · Portfolio Platforms · Digital Commerce"
+        position={[HALF, 0, 0]} 
+        rotation={[0, Math.PI / 2, 0]}
+      >
          <WebDevGeometry />
       </FaceWrapper>
       
-      <FaceWrapper serviceId="creative" title="TWITCH BRANDING" position={[-HALF, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
+      <FaceWrapper 
+        serviceId="creative" 
+        title="TWITCH BRANDING" 
+        subtitle="Visual Strategy · Overlays & Alerts · Type Systems"
+        position={[-HALF, 0, 0]} 
+        rotation={[0, -Math.PI / 2, 0]}
+      >
          <TwitchBrandingGeometry />
       </FaceWrapper>
       
-      <FaceWrapper serviceId="animation" title="ANIMATION" position={[0, HALF, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <FaceWrapper 
+        serviceId="animation" 
+        title="Animation:" 
+        subtitle="Scene-Based Animation · Motion Systems · Animated Environments."
+        position={[0, HALF, 0]} 
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
          <TopGeometry />
       </FaceWrapper>
       
-      <FaceWrapper serviceId="publishing" title="DIGITAL PUBLISHING" position={[0, -HALF, 0]} rotation={[Math.PI / 2, 0, 0]}>
+      <FaceWrapper 
+        serviceId="publishing" 
+        title="DIGITAL PUBLISHING" 
+        subtitle="E-Books · Editorial Design · Interactive Narrative"
+        position={[0, -HALF, 0]} 
+        rotation={[Math.PI / 2, 0, 0]}
+      >
          <PublishingGeometry />
       </FaceWrapper>
       
-      <FaceWrapper serviceId="character" title="COMICS" position={[0, 0, -HALF]} rotation={[0, Math.PI, 0]}>
+      <FaceWrapper 
+        serviceId="character" 
+        title="COMICS" 
+        subtitle="Conceptualization · Sequential Art · Storyboarding"
+        position={[0, 0, -HALF]} 
+        rotation={[0, Math.PI, 0]}
+      >
          <BackGeometry />
       </FaceWrapper>
     </group>

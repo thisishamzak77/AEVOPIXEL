@@ -17,7 +17,6 @@ const categories = [
         link: "https://corahai.vercel.app/", 
         image: "/assets/web/corah.png" 
       },
-      // ... same as before
       { title: "Opera Copper", desc: "Next.js, HTML, CSS", link: "https://operacopperrecycling.vercel.app/", image: "/assets/web/copper.png" },
       { title: "3D Shirt Visualizer", desc: "Three.js, Valtio, React.js, TailwindCSS", link: "https://3d-shirt-viewer-2.vercel.app/", image: "/assets/web/shirt.png" },
       { title: "Clario Systems", desc: "React.js, Next.js, Typescript", link: "https://clariosystemsdev.vercel.app/", image: "/assets/web/clario.png" },
@@ -28,11 +27,11 @@ const categories = [
     slug: "twitch-branding",
     items: [
       { title: "Aevo Stream Identity", desc: "Custom Twitch Overlays", image: "/assets/portfolio/twitch/Twitch_overlays (5).PNG" },
-      { title: "Creator Logo v4", desc: "Luxury Gaming Branding", image: "/assets/portfolio/twitch/Twitch_logo(4).jpeg" },
-      { title: "Creator Logo v5", desc: "Minimalist Stream Mark", image: "/assets/portfolio/twitch/Twitch_logo(5).jpeg" },
-      { title: "Twitch Alertbox", desc: "Custom Dynamic HUD", image: "/assets/portfolio/twitch/twitch_alertbox.PNG" },
+      { title: "Cyber HUD v0", desc: "Interactive Stream Interface", image: "/assets/portfolio/twitch/Twitch_overlay(0).jpeg" },
+      { title: "Neon Overlay v7", desc: "Luxury Gaming Branding", image: "/assets/portfolio/twitch/twitch_overlays(7).jpeg" },
       { title: "Custom Emote Pack", desc: "Pixel/Vector Stickers", image: "/assets/portfolio/twitch/twitch_emotes(3).PNG" },
       { title: "Voxel Overlay", desc: "3D Perspective HUD", image: "/assets/portfolio/twitch/Twitch_overlays (4).PNG" },
+      { title: "Master Stream Hub", desc: "Comprehensive Overlay Set", image: "/assets/portfolio/twitch/twitch_overlay_imp.jpeg" },
     ]
   },
   {
@@ -40,11 +39,11 @@ const categories = [
     slug: "artwork",
     items: [
       { title: "Chibi Unit 01", desc: "High-Fidelity Chibi Art", image: "/assets/portfolio/artwork/chibi_Art.jpeg" },
-      { title: "Concept 01", desc: "Artwork Character Design", image: "/assets/portfolio/artwork/artwork_charachter_design (1).webp" },
       { title: "Chibi Unit 02", desc: "Custom Avatar Illustration", image: "/assets/portfolio/artwork/chibi_art2.jpeg" },
-      { title: "Concept 02", desc: "Stylized Protagonist Sheet", image: "/assets/portfolio/artwork/artwork_charachter_design (2).jpeg" },
       { title: "Cyber Chibi", desc: "Experimental Mascot Art", image: "/assets/portfolio/artwork/chibi_art(3).JPG" },
-      { title: "Vanguard Design", desc: "Weapon & Gear Concepts", image: "/assets/portfolio/artwork/artwork_charachter_design (3).jpeg" },
+      { title: "Geometric Core", desc: "Abstract Visual Components", image: "/assets/portfolio/artwork/artwork(0).jpeg" },
+      { title: "Aevo Sovereign Art", desc: "Master Scene Render", image: "/assets/portfolio/artwork/artwork_main.jpg.jpeg" },
+      { title: "Visual Component v1", desc: "Cinematic Scene Render", image: "/assets/portfolio/artwork/artwork3.jpeg" },
     ]
   },
   {
@@ -52,11 +51,10 @@ const categories = [
     slug: "comics",
     items: [
       { title: "Manga Layout 01", desc: "Sequential Narrative Panel", image: "/assets/portfolio/comics/manga_panel.jpeg" },
-      { title: "Comic Sequence A", desc: "Action Narrative Art", image: "/assets/portfolio/comics/comics(1).jpeg" },
-      { title: "Hero's Journey", desc: "Dynamic Panel Composition", image: "/assets/portfolio/comics/manga_panel2.jpeg" },
-      { title: "Shadow Verse", desc: "Noir Inking Style", image: "/assets/portfolio/comics/comics(2).jpeg" },
-      { title: "Night Walk", desc: "Atmospheric Manga Art", image: "/assets/portfolio/comics/manga_panel3.jpeg" },
-      { title: "Final Duel", desc: "Climactic Comic Sequence", image: "/assets/portfolio/comics/comics(3).png" },
+      { title: "Manga Layout 02", desc: "Dynamic Panel Composition", image: "/assets/portfolio/comics/manga_panel2.jpeg" },
+      { title: "Manga Layout 03", desc: "Atmospheric Manga Art", image: "/assets/portfolio/comics/manga_panel3.jpeg" },
+      { title: "Comic Sequence A", desc: "Action Narrative Art", image: "/assets/portfolio/comics/comic_colored.jpeg" },
+      { title: "Comic Sequence B", desc: "Chibi Noir Chronicles", image: "/assets/portfolio/comics/comic_colored2.jpeg" },
     ]
   },
   {
@@ -74,7 +72,7 @@ const categories = [
     items: [
       { title: "The Girl Between Us", desc: "Wattpad Series / Exclusive", link: "https://www.wattpad.com/story/355047214-the-girl-between-us", image: "/assets/portfolio/publishing/ebook(1)_thegirlbetweenus.jpeg" },
       { title: "Aevo Editorial", desc: "Minimalist Book Design", image: "/assets/portfolio/publishing/ebook(2).png" },
-      { title: "Future Narrative", desc: "Digital Interactive Covers", image: "/assets/portfolio/publishing/ebook(3).jpeg" },
+      { title: "Aevo Editorial #2", desc: "Digital Interactive Covers", image: "/assets/portfolio/publishing/ebook(3).jpeg" },
     ]
   }
 ];
@@ -100,11 +98,18 @@ function PortfolioContent() {
       <div className="space-y-40">
         {categories.map((catItem, idx) => (
           <section key={catItem.title} id={catItem.slug}>
-            <div className="flex items-center gap-4 mb-12">
-              <div className="h-[1px] w-12 bg-aevo-green" />
-              <h2 className="text-aevo-green font-mono text-sm tracking-[0.6em] uppercase">
-                {catItem.title}
-              </h2>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+              <div className="flex items-center gap-4">
+                <div className="h-[1px] w-12 bg-aevo-green" />
+                <h2 className="text-aevo-green font-mono text-sm tracking-[0.6em] uppercase">
+                  {catItem.title}
+                </h2>
+              </div>
+              {catItem.slug === "animation" && (
+                <span className="text-[10px] font-mono text-white/30 tracking-[0.2em] uppercase">
+                  Tap or hover to play.
+                </span>
+              )}
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">

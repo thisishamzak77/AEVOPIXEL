@@ -20,7 +20,7 @@ export default function Hero() {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-50">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-aevo-green font-mono">Scroll to Explore</span>
+        <span className="text-xs uppercase tracking-[0.4em] text-aevo-green font-mono">Scroll to Explore</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-aevo-green to-transparent" />
       </div>
     </section>

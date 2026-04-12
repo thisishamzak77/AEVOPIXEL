@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const services = [
   {
@@ -46,11 +47,13 @@ const services = [
     description: "Fluid physics-based animations that bring static designs to life with cinematic motion.",
     icon: "≋",
     features: ["Particle Systems", "Physics Simulation", "Looping Vis"],
-    previewImage: "/assets/portfolio/animation/animation_preview.png"
+    previewImage: "/assets/portfolio/animation/animation_preview.png",
+    slug: "animation"
   }
 ];
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
+  const router = useRouter();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -88,6 +91,17 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={() => {
+        const slugMap: Record<string, string> = {
+          "Artwork": "artwork",
+          "Web & App Development": "web-development",
+          "Twitch Branding": "twitch-branding",
+          "Comics": "comics",
+          "Digital Publishing": "digital-publishing",
+          "Animation": "animation"
+        };
+        router.push(`/portfolio?cat=${slugMap[service.title] || ""}`);
+      }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
