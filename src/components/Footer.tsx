@@ -50,15 +50,6 @@ export default function Footer() {
               <li>
                 <a href="https://wa.me/971547747726" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-aevo-green transition-colors">WhatsApp</a>
               </li>
-              <li>
-                <a href="#" className="text-sm text-white/60 hover:text-aevo-green transition-colors">Instagram</a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-white/60 hover:text-aevo-green transition-colors">X / Twitter</a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-white/60 hover:text-aevo-green transition-colors">Behance</a>
-              </li>
             </ul>
           </div>
         </div>
